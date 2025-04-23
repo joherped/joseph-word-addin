@@ -5,7 +5,7 @@ Office.onReady(() => {
     const revisarErrores = () => {
         Office.context.document.getSelectedDataAsync(Office.CoercionType.Text, result => {
             if (result.status === Office.AsyncResultStatus.Succeeded) {
-                fetch("http://192.168.0.34:8000/revisar-errores", {
+                fetch("https://joseph-new.onrender.com/revisar-errores", {
                     method: "POST",
                     headers: { "Content-Type": "application/json" },
                     body: JSON.stringify({ texto: result.value })
@@ -20,7 +20,7 @@ Office.onReady(() => {
     const mejorarRedaccion = () => {
         Office.context.document.getSelectedDataAsync(Office.CoercionType.Text, result => {
             if (result.status === Office.AsyncResultStatus.Succeeded) {
-                fetch("http://192.168.0.34:8000/mejorar-redaccion", {
+                fetch("https://joseph-new.onrender.com/mejorar-redaccion", {
                     method: "POST",
                     headers: { "Content-Type": "application/json" },
                     body: JSON.stringify({ texto: result.value })
@@ -35,7 +35,7 @@ Office.onReady(() => {
     const revisarPlanteamiento = () => {
         Office.context.document.getSelectedDataAsync(Office.CoercionType.Text, result => {
             if (result.status === Office.AsyncResultStatus.Succeeded) {
-                fetch("http://192.168.0.34:8000/revisar-planteamiento", {
+                fetch("https://joseph-new.onrender.com/revisar-planteamiento", {
                     method: "POST",
                     headers: { "Content-Type": "application/json" },
                     body: JSON.stringify({ texto: result.value })
@@ -56,5 +56,5 @@ Office.onReady(() => {
     document.getElementById("btnPlanteamiento").onclick = revisarPlanteamiento;
     document.getElementById("btnFinalizar").onclick = finalizar;
 
-    log("✅ Joseph listo con Office.onReady - v36");
+    log("✅ Joseph listo con conexión HTTPS a Render");
 });
