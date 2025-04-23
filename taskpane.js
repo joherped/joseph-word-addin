@@ -2,9 +2,15 @@
 function revisarErrores() {
     Office.context.document.getSelectedDataAsync(Office.CoercionType.Text, function (result) {
         if (result.status === Office.AsyncResultStatus.Succeeded) {
-            const texto = result.value;
-            const corregido = texto.replace(/\b(errores?|descuidos?)\b/gi, "correcciones automáticas");
-            document.getElementById("resultado").innerText = "Texto corregido: " + corregido;
+            fetch("http://192.168.0.34:8000/revisar-errores", {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify({ texto: result.value })
+            })
+            .then(response => response.json())
+            .then(data => {
+                document.getElementById("resultado").innerText = data.respuesta;
+            });
         }
     });
 }
@@ -12,17 +18,35 @@ function revisarErrores() {
 function mejorarRedaccion() {
     Office.context.document.getSelectedDataAsync(Office.CoercionType.Text, function (result) {
         if (result.status === Office.AsyncResultStatus.Succeeded) {
-            const texto = result.value;
-            const mejorado = "Desde un enfoque técnico, " + texto.toLowerCase();
-            document.getElementById("resultado").innerText = "Texto mejorado: " + mejorado;
+            fetch("http://192.168.0.34:8000/mejorar-redaccion", {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify({ texto: result.value })
+            })
+            .then(response => response.json())
+            .then(data => {
+                document.getElementById("resultado").innerText = data.respuesta;
+            });
         }
     });
 }
 
 function revisarPlanteamiento() {
-    document.getElementById("resultado").innerText = "Análisis de cobertura simulado: informe conforme a condiciones estándar.";
+    Office.context.document.getSelectedDataAsync(Office.CoercionType.Text, function (result) {
+        if (result.status === Office.AsyncResultStatus.Succeeded) {
+            fetch("http://192.168.0.34:8000/revisar-planteamiento", {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify({ texto: result.value })
+            })
+            .then(response => response.json())
+            .then(data => {
+                document.getElementById("resultado").innerText = data.respuesta;
+            });
+        }
+    });
 }
 
 function finalizar() {
-    document.getElementById("resultado").innerText = "Guardando documento como Word y PDF... (simulado)";
+    document.getElementById("resultado").innerText = "Finalización simulada: se guardarían Word y PDF.";
 }
