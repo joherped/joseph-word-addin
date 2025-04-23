@@ -1,18 +1,17 @@
+
 <?xml version="1.0" encoding="UTF-8"?>
 <OfficeApp xmlns="http://schemas.microsoft.com/office/appforoffice/1.1"
            xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-           xmlns:bt="http://schemas.microsoft.com/office/officeappbasictypes/1.0"
-           xmlns:ov="http://schemas.microsoft.com/office/taskpaneappversionoverrides"
            xsi:type="TaskPaneApp">
-  <Id>c05d9a4b-e6f3-4c36-91c5-1103a3328e09</Id>
+  <Id>d1b2a3f4-5678-1234-90ab-cdef98765432</Id>
   <Version>1.0.0.0</Version>
-  <ProviderName>Joseph Revisor</ProviderName>
+  <ProviderName>Joseph by Jose Herrero</ProviderName>
   <DefaultLocale>en-US</DefaultLocale>
   <DisplayName DefaultValue="Joseph - Revisión de Informes" />
-  <Description DefaultValue="Revisa informes periciales: errores, redacción y planteamiento técnico." />
-  <IconUrl DefaultValue="https://via.placeholder.com/80" />
-  <SupportUrl DefaultValue="https://example.com/support" />
-  <AppDomains />
+  <Description DefaultValue="Asistente para revisión técnica, redacción y planteamiento de informes periciales." />
+  <IconUrl DefaultValue="https://joherped.github.io/joseph-word-addin/icon.png" />
+  <HighResolutionIconUrl DefaultValue="https://joherped.github.io/joseph-word-addin/icon.png" />
+  <SupportUrl DefaultValue="https://joherped.github.io/joseph-word-addin" />
   <Hosts>
     <Host Name="Document" />
   </Hosts>
@@ -20,28 +19,4 @@
     <SourceLocation DefaultValue="https://joherped.github.io/joseph-word-addin/taskpane.html" />
   </DefaultSettings>
   <Permissions>ReadWriteDocument</Permissions>
-  <VersionOverrides xmlns="http://schemas.microsoft.com/office/taskpaneappversionoverrides"
-                    xsi:type="VersionOverridesV1_0">
-    <Hosts>
-      <Host Name="Document">
-        <DesktopFormFactor>
-          <FunctionFile resid="functionFile" />
-          <ExtensionPoint xsi:type="TaskPane">
-            <SourceLocation resid="taskpaneUrl" />
-            <Title resid="taskpaneTitle" />
-            <RequestedHeight>300</RequestedHeight>
-          </ExtensionPoint>
-        </DesktopFormFactor>
-      </Host>
-    </Hosts>
-    <Resources>
-      <bt:Urls>
-        <bt:Url id="functionFile" DefaultValue="https://joherped.github.io/joseph-word-addin/taskpane.html"/>
-        <bt:Url id="taskpaneUrl" DefaultValue="https://joherped.github.io/joseph-word-addin/taskpane.html"/>
-      </bt:Urls>
-      <bt:ShortStrings>
-        <bt:String id="taskpaneTitle" DefaultValue="Joseph - Revisión de Informes"/>
-      </bt:ShortStrings>
-    </Resources>
-  </VersionOverrides>
 </OfficeApp>
